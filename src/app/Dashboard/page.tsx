@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import page from "."// Make sure the import path to Page is correct
+import page from ""// Make sure the import path to Page is correct
 
 export const metadata: Metadata = {
   title: "Dashboard Overview - Track Your Skill Progress",
