@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SidebarSection from './SidebarSection';
 import SidebarItem from './SidebarItem';
-import { homeItems, academicItems, settingsItems } from './sidebarData';
+import { homeItems, academicItems, settingsItems, logoutItems } from './sidebarData';
 
 const Sidebar: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const Sidebar: React.FC = () => {
         Skill³
       </h1>
       <div className="flex flex-col w-full text-lg font-medium">
-        <SidebarSection title="Home" items={homeItems} />
+        <SidebarSection title="HOME" items={homeItems} />
         <img
           loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/65202168aab88bd2cf4b3af333e951f187227c9112e2247883e1fce288a30599?placeholderIfAbsent=true&apiKey=c602e869c07a418cbb15b337898df55f"
@@ -35,7 +35,7 @@ const Sidebar: React.FC = () => {
           alt=""
           className="object-contain self-start mb-4 ml-30 w-3/4 aspect-[200]"
         />
-        <SidebarItem icon="https://cdn.builder.io/api/v1/image/assets/TEMP/17480d4b45f5c452b6192a14787901294607cfdd1667df6fb15b227a325a6ae8?placeholderIfAbsent=true&apiKey=c602e869c07a418cbb15b337898df55f" text="Logout" />
+        <SidebarSection title="" items={logoutItems} />
       </div>
     </nav>
   );
