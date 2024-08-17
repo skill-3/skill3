@@ -11,7 +11,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="pr-20 bg-white max-md:pr-5">
+    <div className="pr-16 bg-white max-md:pr-5">
       <div className="flex gap-5 max-md:flex-col">
         <Sidebar />
         <MainContent>{children}</MainContent>

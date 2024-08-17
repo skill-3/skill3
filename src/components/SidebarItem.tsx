@@ -4,27 +4,27 @@
 import React from "react";
 
 interface SidebarItemProps {
-  icon: string;
-  text: string;
-  className?: string;
+  label: string;
+  icon?: string;
+  active?: boolean;
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({
-  icon,
-  text,
-  className = "",
-}) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ label, icon, active }) => {
   return (
     <div
-      className={`flex overflow-hidden gap-2.5 px-3.5 py-2.5 rounded-md min-h-[39px] ${className}`}
+      className={`flex overflow-hidden gap-2.5 px-3.5 py-2.5 ${
+        active ? "mt-0" : "mt-3.5"
+      } whitespace-nowrap rounded-md border-white border-l-[5px] min-h-[39px]`}
     >
-      <img
-        loading="lazy"
-        src={icon}
-        alt=""
-        className="object-contain shrink-0 my-auto w-5 aspect-square"
-      />
-      <div className="flex-1 shrink basis-0">{text}</div>
+      {icon && (
+        <img
+          loading="lazy"
+          src={icon}
+          alt=""
+          className="object-contain shrink-0 my-auto w-5 aspect-square"
+        />
+      )}
+      <div className="flex-1 shrink basis-0">{label}</div>
     </div>
   );
 };

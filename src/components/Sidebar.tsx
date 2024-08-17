@@ -6,64 +6,25 @@ import SidebarItem from "./SidebarItem";
 import SidebarSection from "./SidebarSection";
 
 const Sidebar: React.FC = () => {
-  const academicItems = [
-    {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/6f78caa8aae224418b0b45bc41b73ff6ffd1a1d581245cadfd5efaa924fb5ea9?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-      text: "New Skill",
-    },
-    {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/c62e3d12621935fe7c69bdc9e7e6eafaa47ced00ae7e66d3f38608e356cb882a?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-      text: "Expert",
-    },
-    {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/5756759a87369e5d1d8456e868e3662cf0db58710992781cb8474dced3fc85b8?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-      text: "Progress",
-    },
-    {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/0ac4b18b50851a3b4bce9e1e463808261a3547f21b415e6effffb3efee4b8478?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-      text: "Chat",
-    },
-    {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/8babeaa09d24c834ef46b841b405f06eb16f96eb22a12aaace7640afb12a55f4?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-      text: "Announcements",
-    },
-  ];
-
-  const settingsItems = [
-    {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/d74bc400082c2bf6c73c51c40e6083259988fa242b94f777557be2bcb35ccebe?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-      text: "Account settings",
-    },
-    {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/4abf713e062d63303270ac3ca311df5587cf0c7338983f6f25abaf8052b0e942?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-      text: "Notification preferences",
-      className: "text-teal-500",
-    },
-  ];
-
   return (
-    <nav className="flex flex-col w-[23%] max-md:ml-0 max-md:w-full">
-      <div className="flex overflow-hidden flex-col grow w-full text-base font-semibold text-white bg-white border-r border-neutral-200 max-md:mt-3.5">
+    <aside className="flex flex-col w-[22%] max-md:ml-0 max-md:w-full">
+      <nav className="flex overflow-hidden flex-col grow w-full text-base font-semibold text-white bg-white border-r border-neutral-200 max-md:mt-5">
         <div className="flex overflow-hidden flex-col bg-white border-r border-neutral-200">
           <div className="flex flex-col items-start pt-7 pr-1.5 pb-24 w-full bg-slate-900 rounded-[76px]">
-            <div className="flex-1 shrink gap-2.5 px-3.5 py-2.5 whitespace-nowrap rounded-md border-white border-l-[5px]">
-              Home
-            </div>
-            <div className="z-10 flex-1 shrink gap-2.5 px-3.5 py-2.5 mt-0 whitespace-nowrap rounded-md border-white border-l-[5px]">
-              Home
-            </div>
+            <SidebarItem label="Home" active />
+            <SidebarItem label="Home" />
             <h1 className="z-10 -mt-6 ml-4 text-3xl tracking-tight text-zinc-100 max-md:ml-2.5">
               Skill³
             </h1>
             <div className="flex flex-col self-stretch mt-14 w-full text-xl font-medium max-md:mt-10">
               <div className="flex flex-col items-start pr-12 pl-5 w-full font-semibold whitespace-nowrap max-md:pr-5">
                 <SidebarItem
-                  icon="https://cdn.builder.io/api/v1/image/assets/TEMP/e1b14c5d114448c41f75774c6c3039262ffdb04589eedf2ee558adb11e05f3a7?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
-                  text="Home"
+                  label="Home"
+                  icon="https://cdn.builder.io/api/v1/image/assets/TEMP/82cbac4e9b7651b2d30f07acc6ed93a03da9d1e997c43b646e3831d06e33824a?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
                 />
                 <SidebarItem
-                  icon="https://cdn.builder.io/api/v1/image/assets/TEMP/e1b14c5d114448c41f75774c6c3039262ffdb04589eedf2ee558adb11e05f3a7?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
-                  text="Dashboard"
+                  label="Dashboard"
+                  icon="https://cdn.builder.io/api/v1/image/assets/TEMP/82cbac4e9b7651b2d30f07acc6ed93a03da9d1e997c43b646e3831d06e33824a?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
                 />
               </div>
               <img
@@ -72,7 +33,28 @@ const Sidebar: React.FC = () => {
                 alt=""
                 className="object-contain mt-5 w-full max-md:mr-1.5"
               />
-              <SidebarSection title="ACADEMIC" items={academicItems} />
+              <SidebarSection title="ACADEMIC">
+                <SidebarItem
+                  label="New Skill"
+                  icon="https://cdn.builder.io/api/v1/image/assets/TEMP/3d3ce584164186e2d7c1ea60eb6e889cd829544dd94a69a6a59054614a93460f?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
+                />
+                <SidebarItem
+                  label="Expert"
+                  icon="https://cdn.builder.io/api/v1/image/assets/TEMP/5d93f1870cba39b4ca9b1fc93f26f1496c0ff6e65adcd91a3f7e8c43a347c98f?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
+                />
+                <SidebarItem
+                  label="Progress"
+                  icon="https://cdn.builder.io/api/v1/image/assets/TEMP/1596e17ce4fcfd316d0963ba95688430d5c9e8231cb9c91fd9d8ad443b625bf9?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
+                />
+                <SidebarItem
+                  label="Chat"
+                  icon="https://cdn.builder.io/api/v1/image/assets/TEMP/fcd63f9c5aba616527f33df2f26a391992bab19337f46a032a8e15f9fd716aac?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
+                />
+                <SidebarItem
+                  label="Announcements"
+                  icon="https://cdn.builder.io/api/v1/image/assets/TEMP/e80876020e9436de55a94cf3963c777d3eacd8d5247cc96800ba1cfeb8cf20ea?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
+                />
+              </SidebarSection>
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/8079025b46cd1b9dfeb24fbd326b42c400a6d7451fde99f64b29efbe285fe46e?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
@@ -91,7 +73,16 @@ const Sidebar: React.FC = () => {
                 alt=""
                 className="object-contain mt-3.5 w-full aspect-[250]"
               />
-              <SidebarSection title="SETTINGS" items={settingsItems} />
+              <SidebarSection title="SETTINGS">
+                <SidebarItem
+                  label="Account settings"
+                  icon="https://cdn.builder.io/api/v1/image/assets/TEMP/ba93e31556a2b0f68f842d4abb760c0b1590ef36423548ee859f608a3cf79c3d?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
+                />
+                <SidebarItem
+                  label="Notification preferences"
+                  icon="https://cdn.builder.io/api/v1/image/assets/TEMP/fcf282d08d3d0370f08e64a61f6c0eadbb6012d475ec1a129249efe8ead4e3e5?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
+                />
+              </SidebarSection>
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/806a62aeab22292b8114173ff0bb3945f7808ce63a80aedcc06ae9b5dc5a97c2?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
@@ -99,15 +90,14 @@ const Sidebar: React.FC = () => {
                 className="object-contain self-start mt-6 w-full aspect-[250]"
               />
               <SidebarItem
-                icon="https://cdn.builder.io/api/v1/image/assets/TEMP/61e540aecfaca4bb9beecd2a0b718ee7ec4b22d40d2c4f694b6cb1bfba52b8ca?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
-                text="Logout"
-                className="self-start mt-4 max-md:ml-2.5"
+                label="Logout"
+                icon="https://cdn.builder.io/api/v1/image/assets/TEMP/b87e9aece64c478f1e7b6732801ddcf1aac0d950f8f14682136cb0eb707e38e3?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
               />
             </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </aside>
   );
 };
 
