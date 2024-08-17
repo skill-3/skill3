@@ -34,7 +34,7 @@ const Home = () => {
           </Link>
         </li>
         <li style={{ marginBottom: "10px" }}>
-          <Link href="/openforevent">
+          <Link href="/AI">
             <span style={{ color: "#87CEFA", textDecoration: "none" }}>Open for Event</span>
           </Link>
         </li>

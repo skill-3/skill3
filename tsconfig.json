@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/NotificationPeferences/ProfileInfo.js", "src/app/NotificationPeferences/NotificationSettings.js", "src/app/NotificationPeferences/NotificationPreference.js", "src/app/NotificationPeferences/Header.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/NotificationPeferences/ProfileInfo.js", "src/app/NotificationPeferences/NotificationSettings.js", "src/app/NotificationPeferences/NotificationPreference.js", "src/app/NotificationPeferences/Header.js", "src/app/AI/AIChatbox.jsx"],
   "exclude": ["node_modules"]
 }
