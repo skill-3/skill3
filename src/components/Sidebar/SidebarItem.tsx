@@ -5,32 +5,20 @@ import React from "react";
 
 interface SidebarItemProps {
   icon: string;
-  text: string;
-  isActive?: boolean;
-  color?: string;
+  label: string;
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({
-  icon,
-  text,
-  isActive = false,
-  color = "white",
-}) => {
-  const borderColor = isActive ? `border-${color}-500` : `border-${color}`;
-  const textColor = isActive ? `text-${color}-500` : `text-${color}`;
-
+const SidebarItem: React.FC<SidebarItemProps> = ({ icon, label }) => {
   return (
-    <div
-      className={`flex gap-2.5 px-3.5 py-2.5 rounded-md border-l-[5px] ${borderColor} ${textColor}`}
-    >
+    <li className="flex overflow-hidden gap-2.5 px-3.5 py-2.5 mt-2.5 whitespace-nowrap rounded-md min-h-[39px]">
       <img
         loading="lazy"
         src={icon}
         alt=""
         className="object-contain shrink-0 my-auto w-5 aspect-square"
       />
-      <div className="flex-1 shrink basis-0">{text}</div>
-    </div>
+      <div className="flex-1 shrink basis-0">{label}</div>
+    </li>
   );
 };
 

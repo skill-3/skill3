@@ -3,74 +3,47 @@
  */
 import React from "react";
 import SidebarItem from "./SidebarItem";
+import { sidebarItems } from "./sidebarData";
 
-const sidebarItems = [
-  {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/4974002084cdf440ce83b6c29bc329cec921c38d3d4d0be6e4d25d0519ed310e?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-    text: "Home",
-    isActive: true,
-  },
-  {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/8c5c232620efa12614b00360cb6c51636dc8a2ee8ccbd9ede41923b6c3c722c6?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-    text: "Dashboard",
-  },
-  {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/b68ce8b5ed19c79e2285ba479d6ca2054a107846da3faed6b9de199328fa04e6?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-    text: "New Skill",
-  },
-  {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/b3be24f8f2f4babf8ea143e1cd6e69b161bd70e9ca460afad2b9497f54eaac25?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-    text: "Expert",
-  },
-  {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/1596e17ce4fcfd316d0963ba95688430d5c9e8231cb9c91fd9d8ad443b625bf9?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-    text: "Progress",
-  },
-  {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/a7cd00136ab49eb27b6a34400c7f07518d724d739152da8940d28d4947c0deee?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-    text: "Chat",
-  },
-  {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/eed4648a734703a610f65e0537b5c71f41f30a8c4ca85f1c959e49f2b441049d?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-    text: "Announcements",
-  },
-  {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/5b8dcb653a1fa58786fb043ce9fdb07ebde08e4c1a62eb4f12b18ec224481684?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-    text: "Account settings",
-  },
-  {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/1ee64b8eef68ebdc6a5ded8b764dc64e98af14370436244ab9466b2d5159f3ca?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-    text: "Notification preferences",
-    color: "teal",
-  },
-  {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/89e69481a1556112563466c629226a23ad6aa88fe9d503075ce4192d51e56c64?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a",
-    text: "Logout",
-  },
-];
+interface SidebarProps {
+  username: string;
+}
 
-const Sidebar: React.FC = () => {
+const Sidebar: React.FC<SidebarProps> = ({ username }) => {
   return (
-    <aside className="flex flex-col w-[22%] max-md:ml-0 max-md:w-full">
-      <nav className="flex overflow-hidden flex-col w-full text-base font-semibold bg-white border-r border-neutral-200 max-md:mt-3.5">
+    <aside className="flex flex-col w-1/5 max-md:ml-0 max-md:w-full">
+      <nav className="flex overflow-hidden flex-col grow mt-9 w-full text-base font-semibold text-white bg-white border-r border-neutral-200">
         <div className="flex overflow-hidden flex-col bg-white border-r border-neutral-200">
           <div className="flex flex-col items-start pt-7 pr-1.5 pb-24 w-full bg-slate-900 rounded-[76px]">
-            <div className="z-10 -mt-6 ml-4 text-3xl tracking-tight text-zinc-100 max-md:ml-2.5">
+            <div className="flex-1 shrink gap-2.5 px-3.5 py-2.5 whitespace-nowrap rounded-md border-white border-l-[5px]">
+              Home
+            </div>
+            <div className="z-10 flex-1 shrink gap-2.5 px-3.5 py-2.5 mt-0 whitespace-nowrap rounded-md border-white border-l-[5px]">
+              Home
+            </div>
+            <h1 className="z-10 -mt-6 ml-4 text-3xl tracking-tight text-zinc-100 max-md:ml-2.5">
               Skill³
-            </div>
-            <div className="flex flex-col self-stretch mt-14 w-full text-xl font-medium max-md:mt-10">
-              <div className="flex flex-col items-start pr-12 pl-5 w-full font-semibold whitespace-nowrap max-md:pr-5">
-                {sidebarItems.map((item, index) => (
-                  <SidebarItem
-                    key={index}
-                    icon={item.icon}
-                    text={item.text}
-                    isActive={item.isActive}
-                    color={item.color}
-                  />
-                ))}
-              </div>
-            </div>
+            </h1>
+            <ul className="flex flex-col self-stretch mt-14 w-full text-xl font-medium max-md:mt-10">
+              {sidebarItems.map((item, index) => (
+                <SidebarItem key={index} {...item} />
+              ))}
+            </ul>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/806a62aeab22292b8114173ff0bb3945f7808ce63a80aedcc06ae9b5dc5a97c2?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
+              alt=""
+              className="object-contain self-start mt-6 w-full aspect-[250]"
+            />
+            <button className="flex overflow-hidden gap-2.5 self-start px-3.5 py-2.5 mt-4 text-base whitespace-nowrap min-h-[39px] max-md:ml-2.5">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/8616f33907a3cff42e2b9279903bfce123a9b44b4ef9e774a6587a7567e001d4?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
+                alt=""
+                className="object-contain shrink-0 my-auto w-5 aspect-square"
+              />
+              <span className="flex-1 shrink basis-0">Logout</span>
+            </button>
           </div>
         </div>
       </nav>
