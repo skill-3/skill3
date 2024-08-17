@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import useSWR from "swr";
 
 const network = "https://service-testnet.maschain.com/";
@@ -89,9 +90,64 @@ const walletFetcher = async (address: string) => {
   return data;
 };
 
-export default function useWallet(address: string) {
-  const { data, error, isLoading } = useSWR(address, (address) =>
-    walletFetcher(address),
+const CreateUserFetcher = async (name: string, email: string, ic: string) => {
+  const url = network + "api/wallet/create-user";
+  const body = JSON.stringify({
+    name: name,
+    email: email,
+    ic: ic,
+  });
+  const response = await fetch(url, {
+    method: "POST",
+    headers: headersWallet,
+    body: body,
+  });
+  const result = await response.json();
+  return result;
+};
+
+export default function useWallet() {
+  const [addr, setAddr] = useState<string>();
+  const { data, error, isLoading } = useSWR(addr, (addr) =>
+    walletFetcher(addr),
   );
-  return { wallet: data, isLoading, isError: error };
+
+  const setAddress = (address: string) => {
+    setAddr(address);
+  };
+
+  const createNewWallet = async (name: string, email: string, ic: string) => {
+    const url = network + "api/wallet/create-user";
+    const body = JSON.stringify({
+      name: name,
+      email: email,
+      ic: ic,
+    });
+    const response = await fetch(url, {
+      method: "POST",
+      headers: headersWallet,
+      body: body,
+    });
+    const result = await response.json();
+    const resultAddr = result.wallet.wallet_address;
+    setAddr(resultAddr);
+  };
+
+  const signInWallet = async (name: string, address: string) => {
+    const url = network + "api/wallet/wallet/" + address;
+    const response = await fetch(url, { headers: headersWallet });
+    const result = await response.json();
+    const resultAddr = result.result.address;
+    setAddr(resultAddr);
+  };
+
+  return {
+    wallet: data,
+    isLoading,
+    isError: error,
+    address: addr,
+    setAddress,
+    createNewWallet,
+    signInWallet,
+  };
 }
