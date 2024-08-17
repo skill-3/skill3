@@ -1,11 +1,9 @@
-"use server";
 require("dotenv").config();
-
 const network = "https://service-testnet.maschain.com/";
 
 const headersWallet = new Headers({
-  client_id: process.env.MASCHAIN_WALLET_CLIENTKEY!,
-  client_secret: process.env.MASCHAIN_WALLET_CLIENTSECRET!,
+  client_id: process.env.NEXT_PUBLIC_MASCHAIN_WALLET_CLIENTKEY!,
+  client_secret: process.env.NEXT_PUBLIC_MASCHAIN_WALLET_CLIENTSECRET!,
   "Content-Type": "application/json",
 });
 
@@ -93,10 +91,10 @@ async function getCertByWallet(wallet_address: string) {
   console.log(result);
 }
 
-getCertContracts();
+//getCertContracts();
 //createUser();
 //getWallets();
-/*
+
 mintCert(
   "0xe139C934C7c2ADD7cFA4477eEbE1119466299679",
   "0xe154D3777D0Ab8101f817DACC3a247C567De116F",
@@ -106,5 +104,5 @@ mintCert(
   "Thank you for participating in our event!",
   "https://google.com",
 );
-*/
+
 //getCertByWallet("0xe154D3777D0Ab8101f817DACC3a247C567De116F");
