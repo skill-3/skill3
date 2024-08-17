@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header';
-import Sidebar from './Sidebar';
+import Header from '../Header';
+import Sidebar from '../Sidebar';
 import NotificationSettings from './NotificationSettings';
 import ProfileInfo from './ProfileInfo';
 
