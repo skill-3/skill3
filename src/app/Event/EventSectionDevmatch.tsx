@@ -12,50 +12,50 @@ const tokenData = [
 
 const eventData = [
   {
-    title: "WEB3-CREATING VALUE BOOTCAMP",
-    month: "Apr",
+    title: "DEVMATCH HACKATON",
+    month: "JUN",
     day: "20",
     dateTime: "Thu 10:15",
     location: "New York, NY",
   },
   {
-    title: "APU CTF-MATCH COMPETITION",
-    month: "Apr",
+    title: "DEVMATCH HACKATON",
+    month: "JUN",
     day: "20",
     dateTime: "Thu 10:15",
     location: "New York, NY",
   },
   {
-    title: "DIGITAL INNOVATION COMPETITION",
-    month: "Apr",
+    title: "DEVMATCH HACKATON",
+    month: "JUN",
     day: "20",
     dateTime: "Thu 10:15",
     location: "New York, NY",
   },
   {
-    title: "WEB3-CREATING VALUE BOOTCAMP",
-    month: "Apr",
+    title: "DEVMATCH HACKATON",
+    month: "JUN",
     day: "20",
     dateTime: "Thu 10:15",
     location: "New York, NY",
   },
   {
-    title: "WEB3-CREATING VALUE BOOTCAMP",
-    month: "Apr",
+    title: "DEVMATCH HACKATON",
+    month: "JUN",
     day: "20",
     dateTime: "Thu 10:15",
     location: "New York, NY",
   },
   {
-    title: "WEB3-CREATING VALUE BOOTCAMP",
-    month: "Apr",
+    title: "DEVMATCH HACKATON",
+    month: "JUN",
     day: "20",
     dateTime: "Thu 10:15",
     location: "New York, NY",
   },
 ];
 
-const EventSection: React.FC = () => {
+const EventSectionDevmatch: React.FC = () => {
   return (
     <section className="flex flex-col">
       <div className="w-full max-w-[1062px] max-md:max-w-full">
@@ -76,11 +76,12 @@ const EventSection: React.FC = () => {
         <h2 className="self-start text-xl font-medium text-black max-md:max-w-full">
           Participate in event to network with expert and earn coin !
         </h2>
-        <div className="flex flex-col space-y-2 p-4 bg-cyan-400/50 max-w-3xl rounded-lg text-cyan-700">
+
+        <div className="flex flex-col space-y-8 p-4 bg-cyan-400/50 max-w-3xl rounded-lg text-cyan-700">
           <SparkleIcon className="h-8 w-8" />
           <p className="text-lg font-light">
             <Typewriter
-              text="Based on your passions, I recommend these events for you."
+              text="You recently changed your passion, here are your new recommendations."
               onFinished={() => {}}
             />
           </p>
@@ -93,7 +94,7 @@ const EventSection: React.FC = () => {
                 className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full"
               >
                 <EventCard
-                  imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/02f7c504e127ea438567b6a18bdbaec5ddcc5ef6b3619044f40878aea138e02e?placeholderIfAbsent=true&apiKey=c602e869c07a418cbb15b337898df55f"
+                  imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/10fde738095a22c9682364d31199ee390f9105e2fc7b0eaa2890221c87caec1b?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
                   {...event}
                 />
               </div>
@@ -104,7 +105,7 @@ const EventSection: React.FC = () => {
           <div className="flex gap-5 max-md:flex-col">
             <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
               <EventCard
-                imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/02f7c504e127ea438567b6a18bdbaec5ddcc5ef6b3619044f40878aea138e02e?placeholderIfAbsent=true&apiKey=c602e869c07a418cbb15b337898df55f"
+                imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/10fde738095a22c9682364d31199ee390f9105e2fc7b0eaa2890221c87caec1b?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
                 {...eventData[3]}
               />
             </div>
@@ -117,7 +118,7 @@ const EventSection: React.FC = () => {
                       className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full"
                     >
                       <EventCard
-                        imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/02f7c504e127ea438567b6a18bdbaec5ddcc5ef6b3619044f40878aea138e02e?placeholderIfAbsent=true&apiKey=c602e869c07a418cbb15b337898df55f"
+                        imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/10fde738095a22c9682364d31199ee390f9105e2fc7b0eaa2890221c87caec1b?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
                         {...event}
                       />
                     </div>
@@ -138,4 +139,4 @@ const EventSection: React.FC = () => {
   );
 };
 
-export default EventSection;
+export default EventSectionDevmatch;

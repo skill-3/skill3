@@ -6,6 +6,8 @@ import ProgressBar from "../component/ProgressBar";
 import RadarChart from "../component/RadarChart";
 import DataGridView from "../component/DataGridEvent";
 import useWallet from "@/lib/useWallet";
+import SparkleIcon from "../component/SparkleIcon";
+import Typewriter from "../component/Typewriter";
 
 const data = {
   labels: [
@@ -20,6 +22,26 @@ const data = {
     {
       label: "Skill Levels",
       data: [100, 59, 90, 81, 56, 55],
+      backgroundColor: "rgba(34, 202, 236, 0.2)",
+      borderColor: "rgba(34, 202, 236, 1)",
+      borderWidth: 2,
+    },
+  ],
+};
+
+const emptyData = {
+  labels: [
+    "Cognitive Abilities",
+    "Emotional Intelligence",
+    "Adaptability",
+    "Technical Ability",
+    "Leadership Ability",
+    "Social Abilities",
+  ],
+  datasets: [
+    {
+      label: "Skill Levels",
+      data: [0, 0, 0, 0, 0, 0],
       backgroundColor: "rgba(34, 202, 236, 0.2)",
       borderColor: "rgba(34, 202, 236, 1)",
       borderWidth: 2,
@@ -65,17 +87,44 @@ export default function Page() {
         <div className="flex flex-col space-y-4 p-8  bg-white/50 rounded-lg">
           <h1 className="text-2xl font-semibold">Major Skill</h1>
           <div>
-            <ProgressBar percentage={20} label="Front End" />
-            <ProgressBar percentage={50} label="Back End" />
-            <ProgressBar percentage={75} label="AI" />
-            <ProgressBar percentage={90} label="Data Analysis" />
+            <ProgressBar
+              percentage={wallet?.certificates.length != 0 ? 20 : 0}
+              label="Front End"
+            />
+            <ProgressBar
+              percentage={wallet?.certificates.length != 0 ? 50 : 0}
+              label="Back End"
+            />
+            <ProgressBar
+              percentage={wallet?.certificates.length != 0 ? 75 : 0}
+              label="AI"
+            />
+            <ProgressBar
+              percentage={wallet?.certificates.length != 0 ? 90 : 0}
+              label="Data Analysis"
+            />
           </div>
         </div>
         <div className="w-96 h-96 bg-white/50 rounded-lg">
-          <RadarChart data={data} />
+          <RadarChart
+            data={wallet?.certificates.length != 0 ? data : emptyData}
+          />
         </div>
       </div>
-
+      <div className="flex flex-col space-y-2 p-4 bg-cyan-400/50 max-w-xl rounded-lg text-cyan-700">
+        <SparkleIcon className="h-8 w-8" />
+        {wallet?.certificates.length != 0 ? (
+          <p className="text-lg font-light">
+            You&apos;re making progress! According to your current skills,
+            let&apos;s build on your frontend skills
+          </p>
+        ) : (
+          <p className="text-lg font-light">
+            Ready to make your mark? Head to the events page to find the right
+            event for you.
+          </p>
+        )}
+      </div>
       <div className="ml-[15px] mt-[-80px] flex flex-col justify-center">
         <p className="text-lg font-semibold">Recent Achievement</p>
       </div>

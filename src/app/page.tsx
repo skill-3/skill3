@@ -4,6 +4,7 @@ import { useState } from "react";
 import SparkleIcon from "./component/SparkleIcon";
 import useWallet from "@/lib/useWallet";
 import useStorage from "@/lib/useStorage";
+import Typewriter from "./component/Typewriter";
 
 export default function Home() {
   const {
@@ -73,8 +74,11 @@ export default function Home() {
             <div className="flex flex-col space-y-2 p-4 bg-cyan-400/50 w-full rounded-lg text-cyan-700">
               <SparkleIcon className="h-8 w-8" />
               <p className="text-lg font-light">
-                Hey there! Start your journey with a new account, or continue
-                using your existing one.
+                <Typewriter
+                  text="Hey there! Start your journey with a new account, or continue
+                using your existing one."
+                  onFinished={() => {}}
+                />
               </p>
             </div>
             <h1 className="text-2xl font-bold">Create Account</h1>

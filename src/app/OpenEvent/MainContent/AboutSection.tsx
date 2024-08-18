@@ -25,9 +25,9 @@ const AboutSection: React.FC = () => {
           dive into an intense journey of coding, collaborating, and competing,
           using their skills to solve real-world problems presented by
           multinational corporations. This hackathon not only aims to deepen
-          participants' understanding of blockchain and cryptocurrencies through
-          interactive workshops and mentorship but also fosters a vibrant
-          community ...{" "}
+          participants&apos; understanding of blockchain and cryptocurrencies
+          through interactive workshops and mentorship but also fosters a
+          vibrant community. ...{" "}
           <button className="font-semibold text-sky-500">Read More</button>
         </p>
       </div>
