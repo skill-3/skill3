@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useSWR from "swr";
+import useStorage from "./useStorage";
 
 const network = "https://service-testnet.maschain.com/";
 
@@ -107,7 +108,8 @@ const CreateUserFetcher = async (name: string, email: string, ic: string) => {
 };
 
 export default function useWallet() {
-  const [addr, setAddr] = useState<string>();
+  const { getItem, setItem } = useStorage();
+  const [addr, setAddr] = useState<string>(getItem("currentAddr"));
   const { data, error, isLoading } = useSWR(addr, (addr) =>
     walletFetcher(addr),
   );
@@ -130,7 +132,7 @@ export default function useWallet() {
     });
     const result = await response.json();
     const resultAddr = result.wallet.wallet_address;
-    setAddr(resultAddr);
+    setItem("currentAddr", resultAddr);
   };
 
   const signInWallet = async (name: string, address: string) => {
@@ -138,7 +140,8 @@ export default function useWallet() {
     const response = await fetch(url, { headers: headersWallet });
     const result = await response.json();
     const resultAddr = result.result.address;
-    setAddr(resultAddr);
+    console.log(resultAddr);
+    setItem("currentAddr", address);
   };
 
   return {
