@@ -5,9 +5,9 @@ import {
   LineElement,
   Filler,
   Tooltip,
-  Legend
-} from 'chart.js';
-import { Radar } from 'react-chartjs-2';
+  Legend,
+} from "chart.js";
+import { Radar } from "react-chartjs-2";
 
 // Register the required elements
 ChartJS.register(
@@ -16,18 +16,25 @@ ChartJS.register(
   LineElement,
   Filler,
   Tooltip,
-  Legend
+  Legend,
 );
 
 // Define your data and options
 const data = {
-  labels: ['Cognitive Abilities', 'Emotional Intelligence', 'Adaptability', 'Technical Ability', 'Leadership Ability', 'Social Abilities'],
+  labels: [
+    "Cognitive Abilities",
+    "Emotional Intelligence",
+    "Adaptability",
+    "Technical Ability",
+    "Leadership Ability",
+    "Social Abilities",
+  ],
   datasets: [
     {
-      label: 'Skill Levels',
+      label: "Skill Levels",
       data: [65, 59, 90, 81, 56, 55],
-      backgroundColor: 'rgba(34, 202, 236, 0.2)',
-      borderColor: 'rgba(34, 202, 236, 1)',
+      backgroundColor: "rgba(34, 202, 236, 0.2)",
+      borderColor: "rgba(34, 202, 236, 1)",
       borderWidth: 2,
     },
   ],
@@ -36,19 +43,18 @@ const data = {
 const RadarChart = ({ data }: { data: any }) => {
   const options = {
     responsive: true,
-  plugins: {
-    legend: {
-      display: false,  // 隐藏图例
-    },
-    tooltip: {
-      callbacks: {
-        label: (tooltipItem) => {
-          // 可以自定义提示框内容
-          return '';
+    plugins: {
+      legend: {
+        display: false, // 隐藏图例
+      },
+      tooltip: {
+        callbacks: {
+          label: () => {
+            return "";
+          },
         },
       },
     },
-  },
     scales: {
       r: {
         min: 0,
@@ -64,6 +70,6 @@ const RadarChart = ({ data }: { data: any }) => {
     },
   };
   return <Radar data={data} options={options} />;
-}
+};
 
 export default RadarChart;
