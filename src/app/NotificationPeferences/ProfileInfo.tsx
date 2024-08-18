@@ -12,7 +12,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = () => {
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c31ed0b15e2c4ef1b54355484f44751bb3421f5308b92a79d93d60a5e74aae4?placeholderIfAbsent=true&apiKey=0f10dcf47d4a4bb986b4f458dff7f90a"
               alt="Profile"
-              className="object-contain aspect-[0.9] w-[153px]"
+              className="rounded-full border-4 border-gray-300 h-[153px] w-[153px]"
             />
           </div>
         </div>
