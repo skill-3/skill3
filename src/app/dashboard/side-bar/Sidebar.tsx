@@ -1,10 +1,14 @@
 "use client";
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import SidebarSection from './SidebarSection';
-import SidebarItem from './SidebarItem';
-import { homeItems, academicItems, settingsItems, logoutItems } from './sidebarData'
+import React from "react";
+import SidebarSection from "./SidebarSection";
+import SidebarItem from "./SidebarItem";
+import {
+  homeItems,
+  academicItems,
+  settingsItems,
+  logoutItems,
+} from "./sidebarData";
 import Image from "next/image";
 import useWallet from "@/lib/useWallet";
 

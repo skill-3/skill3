@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import SparkleIcon from "./component/SparkleIcon";
 import useWallet from "@/lib/useWallet";
+import useStorage from "@/lib/useStorage";
 
 export default function Home() {
   const {
@@ -14,6 +15,7 @@ export default function Home() {
     createNewWallet,
     signInWallet,
   } = useWallet();
+  const { removeItem } = useStorage();
   const [newUsername, setNewUsername] = useState<string>("");
   const [newEmail, setNewEmail] = useState<string>("");
   const [ic, setIc] = useState<string>("");
@@ -41,6 +43,10 @@ export default function Home() {
     }
   };
 
+  const handleSignOut = () => {
+    removeItem("currentAddr");
+  };
+
   return (
     <main className="w-full h-full grid grid-cols-2 place-content-center max-w-7xl">
       <div className="flex flex-col space-y-4 text-center justify-center">
@@ -51,9 +57,17 @@ export default function Home() {
       </div>
       <div className="flex- flex-col space-y-4 p-8">
         {address ? (
-          <>
+          <div>
             <h1 className="text-2xl font-bold">Logged in</h1>
-          </>
+            <p className="text-xl">{wallet && wallet.name}</p>
+            <p className="text-md">{wallet && wallet.address}</p>
+            <button
+              className="bg-white px-4 py-2 w-max"
+              onClick={handleSignOut}
+            >
+              Sign out
+            </button>
+          </div>
         ) : (
           <>
             <div className="flex flex-col space-y-2 p-4 bg-cyan-400/50 w-full rounded-lg text-cyan-700">
@@ -99,7 +113,7 @@ export default function Home() {
             </form>
             <hr className="border-black/20" />
             <h1 className="text-2xl font-bold">Sign In</h1>
-            <form className="flex flex-col space-y-3">
+            <form className="flex flex-col space-y-3" onSubmit={handleSignIn}>
               <div className="flex flex-col space-y-1">
                 <label htmlFor="username">Username</label>
                 <input
