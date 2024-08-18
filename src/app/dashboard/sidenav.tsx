@@ -1,10 +1,8 @@
-"use client"
+"use client";
 
-import Link from 'next/link';
-import NavLinks from '../dashboard/nav-links';
-import { PowerIcon } from '@heroicons/react/24/outline';
-import { Button } from '../component/button';
-
+import Link from "next/link";
+import NavLinks from "../dashboard/nav-links";
+import { PowerIcon } from "@heroicons/react/24/outline";
 
 export default function SideNav() {
   return (
@@ -13,23 +11,13 @@ export default function SideNav() {
         className="mb-2 flex h-12 items-end justify-start rounded-md bg-darkBlue p-1 md:h-24"
         href="/"
       >
-        <div className="w-30 text-white text-3xl mb-10 ml-3">
-          {"Skill^3"}
-        </div>
+        <div className="w-30 text-white text-3xl mb-10 ml-3">{"Skill^3"}</div>
       </Link>
 
-      
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <NavLinks />
         <div className="hidden h-auto w-full grow rounded-md bg-black-50 md:block"></div>
-
-        <Button link="/contact" className="my-button-class">
-        <PowerIcon className="w-6" />
-        {"Sign Out"}
-      </Button>
       </div>
     </div>
   );
 }
-
-  
