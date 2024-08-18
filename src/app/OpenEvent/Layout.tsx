@@ -9,8 +9,10 @@ const Layout: React.FC = () => {
   return (
     <div className="pr-16 pb-11 bg-white max-md:pr-5">
       <div className="flex gap-5 max-md:flex-col">
-        <Sidebar activeSection="home" />
-        <MainContent />
+        <Sidebar />
+        <MainContent>
+          <></>
+        </MainContent>
       </div>
     </div>
   );
